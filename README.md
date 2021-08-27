@@ -46,14 +46,9 @@ To train the model(s) based on experimenta setting to demonstrate the perfomance
 ## Results
 Our model achieves the following performance on benchmark:
 
-
-
-## Contributing
-This repository is copyrighted under GPLv3 license 
-
   
 ## Citation
-If you use the FaceForensics++ data or code please cite:
+If you use the FakeAVCeleb data or code please cite:
 ```
 TBD
 
