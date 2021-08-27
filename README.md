@@ -1,4 +1,4 @@
-# FakeAVCeleb: A Novel Audio-Video MultimodalDeepfake Dataset
+# FakeAVCeleb: A Novel Audio-Video Multimodal Deepfake Dataset
 
 ![Header](images/teaser.png)
 
