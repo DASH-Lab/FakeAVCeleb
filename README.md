@@ -52,6 +52,7 @@ To train and evaluate the model(s) in the paper, run this command:
   
 ## Results
 Our model achieves the following performance on benchmark:
+```
 | Dataset | Real Videos | Fake Videos | | | | | | | |
 |------------------|-------------------------------------------------------------|
 | UADFV            | 49                                                          | 49                  | 98                  | No  | 0   | 49   | 1 | No  | No  |
@@ -63,7 +64,7 @@ Our model achieves the following performance on benchmark:
 | DFDC             | 23,654                                                      | 104,500             | 128,154             | Yes | 960 | 960  | 8 | Yes | Yes |
 | KoDF             | 62,166                                                      | 175,776             | 237,942             | Yes | 403 | 403  | 6 | No  | Yes |
 | \SystemName      | 490+\hl{RECHECK}                                            | 25,000+\hl{RECHECK} | 25,500+\hl{RECHECK} | Yes | 0   | 600+ | 5 | Yes | Yes |
-
+```
 
 ## Citation
 If you use the FakeAVCeleb data or code please cite:
