@@ -28,20 +28,23 @@ To train and evaluate the model(s) in the paper, run this command:
     ```train
     TBD
     ```
-- test
+- Unimodal Evaluation
    After train the model, you can evaluate the result. 
     ```eval
-    python [eval]...
+    cd ./Unimodal
+    python Eval_Headpose.py
     ```
-
-### 2. Experimental setting (Ablation study for various features)
-To train the model(s) based on experimenta setting to demonstrate the perfomance shift :
-
-
-
-- Evaluation
+    
+- Multimodal Evaluation
   ```eval
-  python ...
+    cd ./Ensemble
+    python Eval_Xception_pair_softvoting.py
+  ```
+  
+- Multimodal Evaluation
+  ```eval
+    cd ./Multimodal
+    python Eval_Multimodal-2.py
   ```
 
 ## Results
