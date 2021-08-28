@@ -7,7 +7,7 @@ FakeAVCeleb is a novel Audio-Video Multimodal Deepfake Detection dataset (FakeAV
 
 
 ## Access
-If you would like to download the FaceForensics++ dataset, please fill out the [google request form](https://docs.google.com/forms/u/1/d/e/1FAIpQLSfPDd3oV0auqmmWEgCSaTEQ6CGpFeB-ozQJ35x-B_0Xjd93bw/viewform) and, once accepted, we will send you the link to our download script.
+If you would like to download the FakeAVCeleb dataset, please fill out the [google request form](https://docs.google.com/forms/u/1/d/e/1FAIpQLSfPDd3oV0auqmmWEgCSaTEQ6CGpFeB-ozQJ35x-B_0Xjd93bw/viewform) and, once accepted, we will send you the link to our download script.
 
 If you have not received a response within a week, it is likely that your email is bouncing - please check this before sending repeat requests.
 
@@ -35,7 +35,8 @@ To train and evaluate the model(s) in the paper, run this command:
     ```
 
 ### 2. Experimental setting (Ablation study for various features)
-To train the model(s) based on experimenta setting to demonstrate the perfomance shift in the paper Table.4, run this command:
+To train the model(s) based on experimenta setting to demonstrate the perfomance shift :
+
 
 
 - Evaluation
