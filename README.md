@@ -9,9 +9,7 @@ FakeAVCeleb is a novel Audio-Video Multimodal Deepfake Detection dataset (FakeAV
 ## Access
 If you would like to download the FakeAVCeleb dataset, please fill out the [google request form](https://docs.google.com/forms/u/1/d/e/1FAIpQLSfPDd3oV0auqmmWEgCSaTEQ6CGpFeB-ozQJ35x-B_0Xjd93bw/viewform) and, once accepted, we will send you the link to our download script.
 
-If you have not received a response within a week, it is likely that your email is bouncing - please check this before sending repeat requests.
-
-Once, you obtain the download link, please head to the [download section](dataset/README.md). You can also find details about the generation of the dataset there.
+Once, you obtain the download link, please see the [download section](dataset/README.md). You can also find details about our FakeAVCeleb dataset.
 
 ## Requirements and Installation
 
