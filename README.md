@@ -75,6 +75,13 @@ To train and evaluate the model(s) in the paper, run this command:
 | Meso4 | 84.3 | 87.8 | 68.4 | 84.7 | 76.0 | 75.3 | 54.8 | 43.1 |
 | MesoInception4 | 82.1 | 80.4 | 62.7 | 83.0 | 75.9 | 73.2 | 53.6 | 77.8 |
 
+- **Spectrogram** of Real audio and Fake audio from left to right.
+
+<div style="text-align:center">
+<img src="./images/Spectrogram_a1.png" width="450" height="280"/>
+<img src="./images/Spectrogram_a1.png" width="450" height="280"/>
+</div>
+
 ## Citation
 If you use the FakeAVCeleb data or code please cite:
 ```
