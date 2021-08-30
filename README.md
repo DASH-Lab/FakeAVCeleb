@@ -18,8 +18,26 @@ Once, you obtain the download link, please see the [download section](dataset/RE
 
 
 
-## Training & Evaluation
 
+## Deepfake Dataset for Quantitative Comparison
+```
+Quantitative comparison of FakeAVCeleb to existing publicly available Deepfake dataset.
+```
+| Dataset | Real Videos | Fake Videos | Total Videos | Rights Cleared | Agreeing subjects | Total subjects | Methods | Real Audio | Deepfake Audio |
+|------------------|-------------------------------------------------------------|---------------------|---------------------|-----|-----|------|---|-----|-----|
+| UADFV            | 49                                                          | 49                  | 98                  | No  | 0   | 49   | 1 | No  | No  |
+| DeepfakeTIMIT    | 640                                                         | 320                 | 960                 | No  | 0   | 32   | 2 | No  | Yes |
+| FF++             | 1000                                                        | 4,000               | 5,000               | No  | 0   | N/A  | 4 | No  | No  |
+| Celeb-DF         | 590                                                         | 5,639               | 6,229               | No  | 0   | 59   | 1 | No  | No  |
+| Google DFD       | 0                                                           | 3,000               | 3,000               | Yes | 28  | 28   | 5 | No  | No  |
+| DeeperForensics  | 50,000                                                      | 10,000              | 60,000              | No  | 100 | 100  | 1 | No  | No  |
+| DFDC             | 23,654                                                      | 104,500             | 128,154             | Yes | 960 | 960  | 8 | Yes | Yes |
+| KoDF             | 62,166                                                      | 175,776             | 237,942             | Yes | 403 | 403  | 6 | No  | Yes |
+| SystemName      | 490 | 25,000 | 25,500 | Yes | 0 | 600 | 5 | Yes | Yes |
+
+
+
+## Training & Evaluation
 ### 1. Benchmark
 To train and evaluate the model(s) in the paper, run this command:
 - Unimodal
@@ -47,27 +65,30 @@ To train and evaluate the model(s) in the paper, run this command:
     cd ./Multimodal/eval
     python Eval_~~.py
   ```
-  
-## Results
-| Split | #examples | Filename | 
-| --- | --- | --- | 
-| train | 122,039 | tvqa_train.jsonl | 
-| val | 15,253 | tvqa_val.jsonl | 
-| test | 15,253 | tvqa_test_release.jsonl |
 
 ## Results
-| Dataset | Real Videos | Fake Videos | Total Videos | Rights Cleared | Agreeing subjects | Total subjects | Methods | Real Audio | Deepfake Audio |
-|------------------|-------------------------------------------------------------|---------------------|---------------------|-----|-----|------|---|-----|-----|
-| UADFV            | 49                                                          | 49                  | 98                  | No  | 0   | 49   | 1 | No  | No  |
-| DeepfakeTIMIT    | 640                                                         | 320                 | 960                 | No  | 0   | 32   | 2 | No  | Yes |
-| FF++             | 1000                                                        | 4,000               | 5,000               | No  | 0   | N/A  | 4 | No  | No  |
-| Celeb-DF         | 590                                                         | 5,639               | 6,229               | No  | 0   | 59   | 1 | No  | No  |
-| Google DFD       | 0                                                           | 3,000               | 3,000               | Yes | 28  | 28   | 5 | No  | No  |
-| DeeperForensics  | 50,000                                                      | 10,000              | 60,000              | No  | 100 | 100  | 1 | No  | No  |
-| DFDC             | 23,654                                                      | 104,500             | 128,154             | Yes | 960 | 960  | 8 | Yes | Yes |
-| KoDF             | 62,166                                                      | 175,776             | 237,942             | Yes | 403 | 403  | 6 | No  | Yes |
-| SystemName      | 490 | 25,000 | 25,500 | Yes | 0 | 600 | 5 | Yes | Yes |
-
+```
+Frame-level AUC scores (%) of various methods on compared datasets.
+```
++----------------+-------+---------------+---------------+-------+------+------+----------+-------------+
+| Dataset        | UADFV | DF-TIMIT (LQ) | DF-TIMIT (HQ) | FF-DF | DFD  | DFDC | Celeb-DF | FakeAVCeleb |
++----------------+-------+---------------+---------------+-------+------+------+----------+-------------+
+| Capsule        | 61.3  | 78.4          | 74.4          | 96.6  | 64.0 | 53.3 | 57.5     | 73.1        |
++----------------+-------+---------------+---------------+-------+------+------+----------+-------------+
+| HeadPose       | 89.0  | 55.1          | 53.2          | 47.3  | 56.1 | 55.9 | 54.6     | 49.2        |
++----------------+-------+---------------+---------------+-------+------+------+----------+-------------+
+| VA-MLP         | 70.2  | 61.4          | 62.1          | 66.4  | 69.1 | 61.9 | 55.0     | 55.8        |
++----------------+-------+---------------+---------------+-------+------+------+----------+-------------+
+| VA-LogReg      | 54.0  | 77.0          | 77.3          | 78.0  | 77.2 | 66.2 | 55.1     | 65.4        |
++----------------+-------+---------------+---------------+-------+------+------+----------+-------------+
+| Xception-raw   | 80.4  | 56.7          | 54.0          | 99.7  | 53.9 | 49.9 | 48.2     | 73.1        |
++----------------+-------+---------------+---------------+-------+------+------+----------+-------------+
+| Xception-comp  | 91.2  | 95.9          | 94.4          | 99.7  | 85.9 | 72.2 | 65.3     | 73.4        |
++----------------+-------+---------------+---------------+-------+------+------+----------+-------------+
+| Meso4          | 84.3  | 87.8          | 68.4          | 84.7  | 76.0 | 75.3 | 54.8     | 43.1        |
++----------------+-------+---------------+---------------+-------+------+------+----------+-------------+
+| MesoInception4 | 82.1  | 80.4          | 62.7          | 83.0  | 75.9 | 73.2 | 53.6     | 77.8        |
++----------------+-------+---------------+---------------+-------+------+------+----------+-------------+
 
 ## Citation
 If you use the FakeAVCeleb data or code please cite:
