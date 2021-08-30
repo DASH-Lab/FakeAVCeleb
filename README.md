@@ -12,11 +12,7 @@ If you would like to download the FakeAVCeleb dataset, please fill out the [goog
 Once, you obtain the download link, please see the [download section](dataset/README.md). You can also find details about our FakeAVCeleb dataset.
 
 ## Requirements and Installation
-
-
-## [Benchmark](TBD)
-
-
+TBD
 
 
 ## Deepfake Dataset for Quantitative Comparison
@@ -66,7 +62,7 @@ To train and evaluate the model(s) in the paper, run this command:
   ```
 
 ## Result
-- Frame-level AUC scores (%)** of various methods on compared datasets.
+- **Frame-level AUC scores (%)** of various methods on compared datasets.
 
 | Dataset | UADFV | DF-TIMIT (LQ) | DF-TIMIT (HQ) | FF-DF | DFD | DFDC | Celeb-DF | FakeAVCeleb |
 |---|---|---|---|---|---|---|---|---|
