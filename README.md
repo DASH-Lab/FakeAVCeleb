@@ -3,7 +3,7 @@
 ![Header](images/teaser.png)
 
 ## Overview
-FakeAVCeleb is a novel Audio-Video Multimodal Deepfake Detection dataset (FakeAVCeleb), which contains not only deepfake videos but also respective synthesized cloned audios. 
+**FakeAVCeleb** is a novel Audio-Video Multimodal Deepfake Detection dataset (**FakeAVCeleb**), which contains not only deepfake videos but also respective synthesized cloned audios. 
 
 
 ## Access
