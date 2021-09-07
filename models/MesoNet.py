@@ -47,7 +47,7 @@ class Meso4(nn.Module):
         x = self.bn2(x)
         x = self.maxpooling2(x) #(16, 8, 8)
         x = x.view(x.size(0), -1) #(Batch, 16*8*8)
-        x = self.fla(x)
+        # x = self.fla(x)
         x = self.fc1(x) #(Batch, 16)
         x = self.leakyrelu(x)
         x = self.dropout(x)
