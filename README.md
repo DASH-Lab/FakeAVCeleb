@@ -40,10 +40,10 @@ To train and evaluate the model(s) in the paper, run this command:
     cd ./Unimodal/train
     python ~~
     ```
-   After train the model, you can evaluate the result. 
+   After train the model, you can evaluate the result.
+   Note that it must be required to write the model name and either video informs(data path, model path) or audio informs(data path, model path)
     ```soely eval (audio and video, respectively.)
-    cd ./Unimodal/eval
-    python Eval_Headpose.py
+    python eval_main.py --model=<model name> --path_video=<data path> --path_video_model=<model path> --path_audio=<data path> --path_audio_model=<model path>
     ```
     
     ```ensemble eval (paired video with audio.)
@@ -78,8 +78,7 @@ To train and evaluate the model(s) in the paper, run this command:
 - **Spectrogram** of Real audio and Fake audio from left to right.
 
 <div style="text-align:center">
-<img src="./images/Spectrogram_a1.png" width="450" height="280"/>
-<img src="./images/Spectrogram_a1.png" width="450" height="280"/>
+<img src="./images/Spectrogram_a1.png" width="450" height="280"/> <img src="./images/Spectrogram_a1.png" width="450" height="280"/>
 </div>
 
 ## Citation
