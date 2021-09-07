@@ -7,7 +7,7 @@
 
 
 ## Access
-If you would like to download the FakeAVCeleb dataset, please fill out the [google request form](https://docs.google.com/forms/u/1/d/e/1FAIpQLSfPDd3oV0auqmmWEgCSaTEQ6CGpFeB-ozQJ35x-B_0Xjd93bw/viewform) and, once accepted, we will send you the link to our download script.
+If you would like to download the FakeAVCeleb dataset, please fill out the [google request form](https://docs.google.com/forms/u/1/d/e/1FAIpQLSfPDd3oV0auqmmWEgCSaTEQ6CGpFeB-ozQJ35x-B_0Xjd93bw/viewform) and, once accepted, we will send you the link to our download script.sh
 
 Once, you obtain the download link, please see the [download section](dataset/README.md) in our [Dataset site](https://~~~~~~~~~~~~~~~~~). You can also find details about our FakeAVCeleb dataset.
 
@@ -33,31 +33,29 @@ TBD
 
 
 ## Training & Evaluation
+####
+- Note that it must be required to write the **model name** and **either video informs**(_data path, model path_) **or audio informs**(_data path, model path_)
+- **More, the model name should be picked one of thes**e : [MESO4, MESOINCEPTION4, XCEPTION, EADPOSE, EXPLOTING, CAPSULE]
 ### 1. Benchmark
 To train and evaluate the model(s) in the paper, run this command:
 - Unimodal
-    ```train
-    cd ./Unimodal/train
-    python ~~
+    ```TRAIN
+    python train_main.py  ~~~~
     ```
    After train the model, you can evaluate the result.
-   Note that it must be required to write the model name and either video informs(data path, model path) or audio informs(data path, model path)
-    ```soely eval (audio and video, respectively.)
+    ```SOELY EVALUATION (audio and video, respectively.)
     python eval_main.py --model=<model name> --path_video=<data path> --path_video_model=<model path> --path_audio=<data path> --path_audio_model=<model path>
     ```
     
-    ```ensemble eval (paired video with audio.)
-    cd ./ENSEMBLE/~~
+    ```ENSEMBLE EVALUATION (paired video with audio.)
     python ~~
     ```
   
 - Multimodal
   ```train
-    cd ./Multimodal/train
     python Train_~~.py
   ```
   ```eval
-    cd ./Multimodal/eval
     python Eval_~~.py
   ```
 
