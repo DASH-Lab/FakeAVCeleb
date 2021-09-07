@@ -12,8 +12,7 @@ If you would like to download the FakeAVCeleb dataset, please fill out the [goog
 Once, you obtain the download link, please see the [download section](dataset/README.md) in our [Dataset site](https://~~~~~~~~~~~~~~~~~). You can also find details about our FakeAVCeleb dataset.
 
 ## Requirements and Installation
-TBD
-
+- Requirements
 
 ## Deepfake Dataset for Quantitative Comparison
 - Quantitative comparison of FakeAVCeleb to existing publicly available **Deepfake dataset**.
@@ -52,10 +51,10 @@ To train and evaluate the model(s) in the paper, run this command:
     ```
   
 - Multimodal
-  ```train
-    python Train_~~.py
+  ```TRAIN
+    python Train_~~.py 
   ```
-  ```eval
+  ```EVALUATION
     python Eval_~~.py
   ```
 
@@ -76,7 +75,7 @@ To train and evaluate the model(s) in the paper, run this command:
 - **Spectrogram** of Real audio and Fake audio from left to right.
 
 <div style="text-align:center">
-<img src="./images/Spectrogram_a1.png" width="450" height="280"/> <img src="./images/Spectrogram_a1.png" width="450" height="280"/>
+<img src="./images/Spectrogram_a1.png" width="400" height="280"/> <img src="./images/Spectrogram_a1.png" width="400" height="280"/>
 </div>
 
 ## Citation
