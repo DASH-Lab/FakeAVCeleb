@@ -5,8 +5,6 @@ import torchvision.transforms as transforms
 import torchvision.datasets as datasets
 import copy
 import time
-from torch.cuda.amp import GradScaler
-from utils.EarlyStopping import EarlyStopping
 from utils.Common_Function import *
 from models.MesoNet import Meso4
 #############################EVAL##############################
@@ -16,6 +14,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import accuracy_score
 
 set_seeds()
+
 # LIST_SELECT = ['IMAGE', 'VIDEO']
 def EvalMesoNet(args):
     LIST_SELECT = ('VIDEO' if os.path.exists(args.path_video) else '', 'AUDIO' if os.path.exists(args.path_audio) else '')
