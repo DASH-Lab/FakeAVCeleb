@@ -37,23 +37,24 @@ Once, you obtain the download link, please see the [download section](dataset/RE
 - **More, the model name should be picked one of thes**e : [MESO4, MESOINCEPTION4, XCEPTION, EADPOSE, EXPLOTING, CAPSULE]
 ### 1. Benchmark
 To train and evaluate the model(s) in the paper, run this command:
-- Unimodal train and evaluation
-    ```
+- Unimodal
+    ```TRAIN
     python train_main.py  ~~~~
     ```
-   SOELY EVALUATION (audio and video, respectively.)
+   After train the model, you can evaluate the result.
     ```SOELY EVALUATION (audio and video, respectively.)
     python eval_main.py --model=<model name> --path_video=<data path> --path_video_model=<model path> --path_audio=<data path> --path_audio_model=<model path>
     ```
+    
     ```ENSEMBLE EVALUATION (paired video with audio.)
-    python eval_main.py
+    python ~~
     ```
   
-- Multimodal train and evaluation
-  ```
+- Multimodal
+  ```TRAIN
     python Train_~~.py 
   ```
-  ```
+  ```EVALUATION
     python Eval_~~.py
   ```
 
