@@ -41,6 +41,7 @@ Once, you obtain the download link, please see the [download section](dataset/RE
   -vm                  path of video model (For evluation)
   -a                   path of audio data
   -am                  path of audio model (For evluation)
+  -sm                  path to save best-model while trai
   -l                   learning late (For training)
   -me                  number of epoch (For training)
   -nb                  batch size
