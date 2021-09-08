@@ -1,8 +1,6 @@
 import torch.nn as nn
 import torch.optim as optim
 import torch.utils.data as data
-import torch.multiprocessing
-torch.multiprocessing.set_sharing_strategy('file_system')
 import torchvision.transforms as transforms
 import torchvision.datasets as datasets
 import copy
@@ -12,7 +10,6 @@ from utils.EarlyStopping import EarlyStopping
 from utils.Common_Function import *
 from models.MesoNet import Meso4
 
-set_seeds()
 
 def TrainMesoNet(args):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -29,9 +26,9 @@ def TrainMesoNet(args):
     for MODE in LIST_SELECT:
         train_dir = ''
         if MODE == 'VIDEO':
-            train_dir = tu_video[0]
+            train_dir = tu_video
         elif MODE == 'AUDIO':
-            train_dir = tu_audio[0]
+            train_dir = tu_audio
         print(train_dir)
         assert(os.path.exists(train_dir),'wrong path param !!!')
 
@@ -83,8 +80,10 @@ def TrainMesoNet(args):
         print(f'number of train/val/test loader : {len(train_iterator), len(valid_iterator)}')
 
         model = Meso4()
-        criterion = nn.CrossEntropyLoss().to(device)
+        if len(args.num_gpu) > 1:
+            model = nn.DataParallel(model)
         model = model.to(device)
+        criterion = nn.CrossEntropyLoss().to(device)
         scaler = GradScaler()
         early_stopping = EarlyStopping(patience=PATIENCE_EARLYSTOP, verbose=True)
 
@@ -106,7 +105,7 @@ def TrainMesoNet(args):
                             'epoch': epoch,
                             'lr': START_LR,
                             'best_acc': valid_acc_1,
-                            }, f'{SAVE_PATH}/TEMP_NAME.pt')
+                            }, f'{SAVE_PATH}/best_{args.model}.pt')
 
             end_time = time.monotonic()
             epoch_mins, epoch_secs = epoch_time(start_time, end_time)

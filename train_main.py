@@ -1,6 +1,7 @@
 import argparse
 from Unimodal.Training import *
-import os
+from utils.Common_Function import *
+import torch.multiprocessing
 
 parser = argparse.ArgumentParser(description='PyTorch CONTINUAL LEARNING')
 parser.add_argument('--model', '-m',type=str, default="MESO4", help='model name = [MESO4, MESOINCEPTION4, XCEPTION, EADPOSE, EXPLOTING, CAPSULE]')#TO BE MODIFIED
@@ -17,14 +18,16 @@ parser.add_argument('--val_ratio', '-vr', type=float, default=0.3, help='validat
 parser.add_argument('--n_early', '-ne', type=int, default=10, help='patient number of early stopping')
 
 args = parser.parse_args()
+set_seeds()
+torch.multiprocessing.set_sharing_strategy('file_system')
 print('GPU num is' , args.num_gpu)
 os.environ['CUDA_VISIBLE_DEVICES'] =str(args.num_gpu)
-
 MODEL = args.model
 if MODEL == 'MESO4':
    Train_MesoNet.TrainMesoNet(args)
-#TO BE MODIFIED
-#TO BE MODIFIED
-#TO BE MODIFIED
+elif MODEL == 'MESOINCEPTION':
+   Train_MesoInceptionNet.TrainMesoInceptionNet(args)
+elif MODEL == 'XCEPTION':
+   Train_Xception.TrainXception(args)
 #TO BE MODIFIED
 #TO BE MODIFIED
