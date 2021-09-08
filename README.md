@@ -31,10 +31,28 @@ Once, you obtain the download link, please see the [download section](dataset/RE
 
 
 
+
 ## Training & Evaluation
+### Full Usages
+
+```console
+  -m                   model name = [MESO4, MESOINCEPTION4, XCEPTION, EADPOSE, EXPLOTING, CAPSULE]
+  -v                   path of video data
+  -vm                  path of video model
+  -a                   path of audio data
+  -am                  path of audio model
+  -l                   learning late (for training)
+  -me                  number of epoch (for training)
+  -nb                  batch size
+  -ng                  gpu device to use (default=0) can be 0,1,2 for multi-gpu
+  -vr                  validation ratio on trainset
+  -ne                  patient number of early stopping
+```
+
+
 ####
-- Note that it must be required to write the **model name** and **either video informs**(_data path, model path_) **or audio informs**(_data path, model path_)
-- **More, the model name should be picked one of thes**e : [MESO4, MESOINCEPTION4, XCEPTION, EADPOSE, EXPLOTING, CAPSULE]
+- **Note that** it must be required to write the **model name** and **either video informs**(_data path, model path_) **or audio informs**(_data path, model path_)
+- More, **the model name should be picked one of thes**e : [MESO4, MESOINCEPTION4, XCEPTION, EADPOSE, EXPLOTING, CAPSULE]
 ### 1. Benchmark
 To train and evaluate the model(s) in the paper, run this command:
 - Unimodal
