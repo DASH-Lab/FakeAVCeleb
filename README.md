@@ -38,11 +38,11 @@ Once, you obtain the download link, please see the [download section](dataset/RE
 ```console
   -m                   model name = [MESO4, MESOINCEPTION4, XCEPTION, EADPOSE, EXPLOTING, CAPSULE]
   -v                   path of video data
-  -vm                  path of video model
+  -vm                  path of video model (For evluation)
   -a                   path of audio data
-  -am                  path of audio model
-  -l                   learning late (for training)
-  -me                  number of epoch (for training)
+  -am                  path of audio model (For evluation)
+  -l                   learning late (For training)
+  -me                  number of epoch (For training)
   -nb                  batch size
   -ng                  gpu device to use (default=0) can be 0,1,2 for multi-gpu
   -vr                  validation ratio on trainset
