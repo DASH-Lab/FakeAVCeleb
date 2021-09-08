@@ -31,19 +31,38 @@ Once, you obtain the download link, please see the [download section](dataset/RE
 
 
 
+
 ## Training & Evaluation
+### Full Usages
+
+```console
+  -m                   model name = [MESO4, MESOINCEPTION4, XCEPTION, EADPOSE, EXPLOTING, CAPSULE]
+  -v                   path of video data
+  -vm                  path of video model (For evluation)
+  -a                   path of audio data
+  -am                  path of audio model (For evluation)
+  -sm                  path to save best-model while trai
+  -l                   learning late (For training)
+  -me                  number of epoch (For training)
+  -nb                  batch size
+  -ng                  gpu device to use (default=0) can be 0,1,2 for multi-gpu
+  -vr                  validation ratio on trainset
+  -ne                  patient number of early stopping
+```
+
+
 ####
-- Note that it must be required to write the **model name** and **either video informs**(_data path, model path_) **or audio informs**(_data path, model path_)
-- **More, the model name should be picked one of thes**e : [MESO4, MESOINCEPTION4, XCEPTION, EADPOSE, EXPLOTING, CAPSULE]
+- **Note that** it must be required to write the **model name** and **either video informs**(_data path, model path_) **or audio informs**(_data path, model path_)
+- More, **the model name should be picked one of thes**e : [MESO4, MESOINCEPTION4, XCEPTION, EADPOSE, EXPLOTING, CAPSULE]
 ### 1. Benchmark
 To train and evaluate the model(s) in the paper, run this command:
 - Unimodal
     ```TRAIN
-    python train_main.py  ~~~~
+   python triain_main.py -m=<model name> -v=<data path for video> -a=<data path for audio> 
     ```
    After train the model, you can evaluate the result.
     ```SOELY EVALUATION (audio and video, respectively.)
-    python eval_main.py --model=<model name> --path_video=<data path> --path_video_model=<model path> --path_audio=<data path> --path_audio_model=<model path>
+    python eval_main.py -m=<model name> -v=<data path for video> -vm=<model path for video> -a=<data path for audio> -am=<model path for audio>
     ```
     
     ```ENSEMBLE EVALUATION (paired video with audio.)
@@ -52,10 +71,10 @@ To train and evaluate the model(s) in the paper, run this command:
   
 - Multimodal
   ```TRAIN
-    python Train_~~.py 
+    python triain_main.py -m=<model name> -v=<data path for video> -vm=<model path for video> -a=<data path for audio> -am=<model path for audio> #Need to change
   ```
   ```EVALUATION
-    python Eval_~~.py
+    python eval_main.py -m=<model name> -v=<data path for video> -vm=<model path for video> -a=<data path for audio> -am=<model path for audio> #Need to change
   ```
 
 ## Result
