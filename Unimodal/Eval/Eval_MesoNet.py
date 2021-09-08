@@ -1,5 +1,7 @@
 import os
 import torch.utils.data as data
+import torch.multiprocessing
+torch.multiprocessing.set_sharing_strategy('file_system')
 
 import torchvision.transforms as transforms
 import torchvision.datasets as datasets
@@ -12,7 +14,6 @@ from sklearn.metrics import classification_report
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import accuracy_score
-
 set_seeds()
 
 def EvalMesoNet(args):

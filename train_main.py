@@ -8,6 +8,7 @@ parser.add_argument('--path_video', '-v',type=str, default="/media/data1/mhkim/F
 parser.add_argument('--path_video_model', '-vm',type=str, default="./Unimodal/weights/video/Meso4_realA_fakeC.pt", help='path of the video model')
 parser.add_argument('--path_audio', '-a',type=str, default='', help="/media/data1/mhkim/FAKEVV_hasam/test/SPECTOGRAMS/real_A_fake_others") #TO BE MODIFIED
 parser.add_argument('--path_audio_model', '-am',type=str, default='./Unimodal/weights/audio/Meso4_realA_fakeB.pt', help='path of the audio model')
+parser.add_argument('--path_save', '-sm',type=str, default='./', help='path to save model while training')
 parser.add_argument('--lr', '-l', type=float, default=1e-5, help='initial learning rate')
 parser.add_argument('--epochs', '-me', type=int, default=50, help='epochs')
 parser.add_argument('--batch_size', '-nb', type=int, default=200, help='batch size')
