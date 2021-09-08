@@ -15,7 +15,6 @@ from sklearn.metrics import accuracy_score
 
 set_seeds()
 
-# LIST_SELECT = ['IMAGE', 'VIDEO']
 def EvalMesoNet(args):
     LIST_SELECT = ('VIDEO' if os.path.exists(args.path_video) else '', 'AUDIO' if os.path.exists(args.path_audio) else '')
     assert (LIST_SELECT[0]!='' and LIST_SELECT[1]!='', 'At least one path must be typed')
@@ -24,17 +23,7 @@ def EvalMesoNet(args):
         tu_video = (args.path_video, args.path_video_model)
     if args.path_audio and args.path_audio_model:
         tu_audio = (args.path_audio, args.path_audio_model)
-
-    # TO BE MODIFIED
-    # TO BE MODIFIED
-    # BOTTOM ANNOTATIONED THIGS WILL BE USED IN TRAINING CODE
-
-    # calculate = False
-    # EPOCHS = args.epochs
     BATCH_SIZE = args.batch_size
-    # VALID_RATIO = args.val_ratio
-    # START_LR = args.lr
-    # PATIENCE_EARLYSTOP = args.n_early
 
     for MODE in LIST_SELECT:
         test_dir, load_dir = '', ''
@@ -64,13 +53,8 @@ def EvalMesoNet(args):
                                         batch_size = BATCH_SIZE)
         model = Meso4()
         model.load_state_dict(torch.load(load_dir)['state_dict'])
-        OUTPUT_DIM = 2
-        print(f'OUTPUT_DIM is {OUTPUT_DIM}')
-
-        os.environ["CUDA_VISIBLE_DEVICES"] = "2"
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         model = model.to(device)
-
         print("eval...")
         start_time = time.monotonic()
         def EVAL_classification(model, test_iterator, device):
