@@ -1,8 +1,4 @@
-import os
 import torch.utils.data as data
-import torch.multiprocessing
-torch.multiprocessing.set_sharing_strategy('file_system')
-
 import torchvision.transforms as transforms
 import torchvision.datasets as datasets
 import copy
@@ -14,24 +10,19 @@ from sklearn.metrics import classification_report
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import accuracy_score
-set_seeds()
+import torch.nn as nn
 
-def EvalMesoNet(args):
+def Eval(args):
     LIST_SELECT = ('VIDEO' if os.path.exists(args.path_video) else '', 'AUDIO' if os.path.exists(args.path_audio) else '')
     assert (LIST_SELECT[0]!='' and LIST_SELECT[1]!='', 'At least one path must be typed')
-    tu_video, tu_audio = None, None
-    if args.path_video and args.path_video_model:
-        tu_video = (args.path_video, args.path_video_model)
-    if args.path_audio and args.path_audio_model:
-        tu_audio = (args.path_audio, args.path_audio_model)
     BATCH_SIZE = args.batch_size
 
     for MODE in LIST_SELECT:
         test_dir, load_dir = '', ''
         if MODE == 'VIDEO':
-            test_dir, load_dir = tu_video
+            test_dir, load_dir = args.path_video, args.path_video_model
         elif MODE == 'AUDIO':
-            test_dir, load_dir = tu_audio
+            test_dir, load_dir = args.path_audio, args.path_audio_model
         assert(os.path.exists(test_dir) and os.path.exists(load_dir) ,'wrong path param !!!')
 
         pretrained_size = 224
@@ -55,9 +46,12 @@ def EvalMesoNet(args):
         model = Meso4()
         model.load_state_dict(torch.load(load_dir)['state_dict'])
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        if len(args.num_gpu) > 1:
+            model = nn.DataParallel(model)
         model = model.to(device)
         print("eval...")
         start_time = time.monotonic()
+
         def EVAL_classification(model, test_iterator, device):
             label_encoder = LabelEncoder()
             enc = OneHotEncoder(sparse=False)

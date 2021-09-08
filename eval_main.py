@@ -18,7 +18,11 @@ os.environ['CUDA_VISIBLE_DEVICES'] =str(args.num_gpu)
 
 MODEL = args.model
 if MODEL == 'MESO4':
-    Eval_MesoNet.EvalMesoNet(args)
+   Eval_MesoNet.Eval(args)
+elif MODEL == 'MESOINCEPTION':
+   Eval_MesoInceptionNet.Eval(args)
+elif MODEL == 'XCEPTION':
+   Eval_Xception.Eval(args)
 #TO BE MODIFIED
 #TO BE MODIFIED
 #TO BE MODIFIED

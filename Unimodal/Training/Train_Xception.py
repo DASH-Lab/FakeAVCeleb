@@ -12,9 +12,7 @@ from models import xception_origin
 
 
 def TrainXception(args):
-    print("??")
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    print(device)
     LIST_SELECT = ('VIDEO' if os.path.exists(args.path_video) else '',
                    'AUDIO' if os.path.exists(args.path_audio) else '')
     assert (LIST_SELECT[0]!='' and LIST_SELECT[1]!='', 'At least one path must be typed')

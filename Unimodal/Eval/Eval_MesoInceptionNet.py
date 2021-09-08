@@ -1,13 +1,9 @@
 import torch.nn as nn
-import torch.optim as optim
 import torch.utils.data as data
-
 import torchvision.transforms as transforms
 import torchvision.datasets as datasets
 import copy
 import time
-from torch.cuda.amp import GradScaler
-from utils.EarlyStopping import EarlyStopping
 from utils.Common_Function import *
 from models.MesoNet import  MesoInception4
 #############################EVAL##############################
@@ -15,28 +11,21 @@ from sklearn.metrics import classification_report
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import accuracy_score
-def EvalMesoInception():
-    set_seeds()
-    LIST_SELECT = ['IMAGE', 'VIDEO']
-    for SELECT in LIST_SELECT:
-        MODE = SELECT
-        calculate = False
-        EPOCHS = 50
-        BATCH_SIZE = 200
-        VALID_RATIO = 0.3
-        N_IMAGES = 100
-        START_LR = 1e-5
-        END_LR = 10
-        NUM_ITER = 100
-        PATIENCE_EARLYSTOP=10
+import torch.nn as nn
 
+
+def Eval(args):
+    LIST_SELECT = ('VIDEO' if os.path.exists(args.path_video) else '', 'AUDIO' if os.path.exists(args.path_audio) else '')
+    assert (LIST_SELECT[0]!='' and LIST_SELECT[1]!='', 'At least one path must be typed')
+    BATCH_SIZE = args.batch_size
+
+    for MODE in LIST_SELECT:
         test_dir, load_dir = '', ''
-        if MODE == 'IMAGE':
-            test_dir = "/media/data1/mhkim/FAKEVV_hasam/test/FRAMES/real_A_fake_others"
-            load_dir = "./MesoInception4_realA_fakeC.pt"
-        elif MODE == 'VIDEO':
-            test_dir =  "/media/data1/mhkim/FAKEVV_hasam/test/SPECTOGRAMS/real_A_fake_others"
-            load_dir = "./MesoInception4_realA_fakeB.pt"
+        if MODE == 'VIDEO':
+            test_dir, load_dir = args.path_video, args.path_video_model
+        elif MODE == 'AUDIO':
+            test_dir, load_dir = args.path_audio, args.path_audio_model
+        assert(os.path.exists(test_dir) and os.path.exists(load_dir) ,'wrong path param !!!')
 
         pretrained_size = 224
         pretrained_means = [0.4489, 0.3352, 0.3106]#[0.485, 0.456, 0.406]
@@ -58,21 +47,14 @@ def EvalMesoInception():
                                         batch_size = BATCH_SIZE)
         model = MesoInception4()
         model.load_state_dict(torch.load(load_dir)['state_dict'])
-        OUTPUT_DIM = 2
-        print(f'OUTPUT_DIM is {OUTPUT_DIM}')
-
-        os.environ["CUDA_VISIBLE_DEVICES"] = "2"
+        if len(args.num_gpu) > 1:
+            model = nn.DataParallel(model)
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        criterion = nn.CrossEntropyLoss().to(device)
         model = model.to(device)
-        scaler = GradScaler()
-        early_stopping = EarlyStopping(patience=PATIENCE_EARLYSTOP, verbose=True)
-        optimizer = optim.Adam(model.parameters(), lr = START_LR)
-        best_valid_loss = float('inf')
 
         print("eval...")
-
         start_time = time.monotonic()
+
         def EVAL_classification(model, test_iterator, device):
             label_encoder = LabelEncoder()
             enc = OneHotEncoder(sparse=False)
