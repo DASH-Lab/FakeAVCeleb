@@ -39,11 +39,11 @@ Once, you obtain the download link, please see the [download section](dataset/RE
 To train and evaluate the model(s) in the paper, run this command:
 - Unimodal
     ```TRAIN
-    python train_main.py  ~~~~
+   python triain_main.py -m=<model name> -v=<data path for video> -a=<data path for audio> 
     ```
    After train the model, you can evaluate the result.
     ```SOELY EVALUATION (audio and video, respectively.)
-    python eval_main.py --model=<model name> --path_video=<data path> --path_video_model=<model path> --path_audio=<data path> --path_audio_model=<model path>
+    python eval_main.py -m=<model name> -v=<data path for video> -vm=<model path for video> -a=<data path for audio> -am=<model path for audio>
     ```
     
     ```ENSEMBLE EVALUATION (paired video with audio.)
@@ -52,10 +52,10 @@ To train and evaluate the model(s) in the paper, run this command:
   
 - Multimodal
   ```TRAIN
-    python Train_~~.py 
+    python triain_main.py -m=<model name> -v=<data path for video> -vm=<model path for video> -a=<data path for audio> -am=<model path for audio> #Need to change
   ```
   ```EVALUATION
-    python Eval_~~.py
+    python eval_main.py -m=<model name> -v=<data path for video> -vm=<model path for video> -a=<data path for audio> -am=<model path for audio> #Need to change
   ```
 
 ## Result
