@@ -12,10 +12,21 @@ If you would like to download the FakeAVCeleb dataset, please fill out the [goog
 Once, you obtain the download link, please see the [download section](dataset/README.md) in our [Dataset site](https://~~~~~~~~~~~~~~~~~). You can also find details about our FakeAVCeleb dataset.
 
 ## Requirements and Installation
-- Requirements
+- ### Requirements
 
+```console
+python==3.8.0
+numpy==1.20.3
+torch==1.8.0
+torchvision==0.9.0
+matplotlib==3.3.4
+tqdm==4.61.2
+sklearn
+scikit-learn
+pandas
+```
 ## Deepfake Dataset for Quantitative Comparison
-- Quantitative comparison of FakeAVCeleb to existing publicly available **Deepfake dataset**.
+- ### Quantitative comparison of FakeAVCeleb to existing publicly available **Deepfake dataset**.
 
 | Dataset | Real Videos | Fake Videos | Total Videos | Rights Cleared | Agreeing subjects | Total subjects | Methods | Real Audio | Deepfake Audio |
 |------------------|-------------------------------------------------------------|---------------------|---------------------|-----|-----|------|---|-----|-----|
@@ -33,7 +44,7 @@ Once, you obtain the download link, please see the [download section](dataset/RE
 
 
 ## Training & Evaluation
-### Full Usages
+### - Full Usages
 
 ```console
   -m                   model name = [MESO4, MESOINCEPTION4, XCEPTION, EADPOSE, EXPLOTING, CAPSULE]
@@ -54,9 +65,9 @@ Once, you obtain the download link, please see the [download section](dataset/RE
 ####
 - **Note that** it must be required to write the **model name** and **either video informs**(_data path, model path_) **or audio informs**(_data path, model path_)
 - More, **the model name should be picked one of thes**e : [MESO4, MESOINCEPTION4, XCEPTION, EADPOSE, EXPLOTING, CAPSULE]
-### 1. Benchmark
+### - Benchmark
 To train and evaluate the model(s) in the paper, run this command:
-- Unimodal
+- **1. Unimodal**
     ```TRAIN
    python triain_main.py -m=<model name> -v=<data path for video> -a=<data path for audio> 
     ```
@@ -69,7 +80,7 @@ To train and evaluate the model(s) in the paper, run this command:
     python ~~
     ```
   
-- Multimodal
+- **2. Multimodal**
   ```TRAIN
     python triain_main.py -m=<model name> -v=<data path for video> -vm=<model path for video> -a=<data path for audio> -am=<model path for audio> #Need to change
   ```
