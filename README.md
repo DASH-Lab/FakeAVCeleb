@@ -12,18 +12,10 @@ If you would like to download the FakeAVCeleb dataset, please fill out the [goog
 Once, you obtain the download link, please see the [download section](dataset/README.md) in our [Dataset site](https://~~~~~~~~~~~~~~~~~). You can also find details about our FakeAVCeleb dataset.
 
 ## Requirements and Installation
-- ### Requirements
+We recommend the installation using _requilrements.txt_.
 
 ```console
-python==3.8.0
-numpy==1.20.3
-torch==1.8.0
-torchvision==0.9.0
-matplotlib==3.3.4
-tqdm==4.61.2
-sklearn
-scikit-learn
-pandas
+pip install -r requirements.txt
 ```
 ## Deepfake Dataset for Quantitative Comparison
 - ### Quantitative comparison of FakeAVCeleb to existing publicly available **Deepfake dataset**.
