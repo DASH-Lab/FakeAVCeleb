@@ -74,7 +74,7 @@ To train and evaluate the model(s) in the paper, run this command:
     ```SOELY EVALUATION (audio and video, respectively.)
     python eval_main.py -m=<model name> -v=<data path for video> -vm=<model path for video> -a=<data path for audio> -am=<model path for audio>
     ```
-    
+   Also, After train the model, you can evaluate the result of Ensemble Prediction.
     ```ENSEMBLE EVALUATION (paired video with audio.)
     python ~~
     ```
