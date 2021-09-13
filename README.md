@@ -51,7 +51,8 @@ pip install -r requirements.txt
   -vm                  path of video model (For evluation)
   -a                   path of audio data
   -am                  path of audio model (For evluation)
-  -sm                  path to save best-model while trai
+  -en                  True or False, It would be decided whether ensemble
+  -sm                  path to save best-model while training
   -l                   learning late (For training)
   -me                  number of epoch (For training)
   -nb                  batch size
@@ -71,12 +72,12 @@ To train and evaluate the model(s) in the paper, run this command:
    python triain_main.py -m=<model name> -v=<data path for video> -a=<data path for audio> 
     ```
    After train the model, you can evaluate the result.
-    ```SOELY EVALUATION (audio and video, respectively.)
-    python eval_main.py -m=<model name> -v=<data path for video> -vm=<model path for video> -a=<data path for audio> -am=<model path for audio>
+    ```SOELY EVALUATION (Audio and Video, _respectively_.)
+    python eval_main.py -en=False -m=<model name> -v=<data path for video> -vm=<model path for video> -a=<data path for audio> -am=<model path for audio>
     ```
    Also, After train the model, you can evaluate the result of Ensemble Prediction.
-    ```ENSEMBLE EVALUATION (paired video with audio.)
-    python ~~
+    ```ENSEMBLE EVALUATION (Video and Audio _together_.)
+    python eval_main.py -en=True -m=<model name> -v=<data path for video> -vm=<model path for video> -a=<data path for audio> -am=<model path for audio>
     ```
   
 - **2. Multimodal**
@@ -84,7 +85,7 @@ To train and evaluate the model(s) in the paper, run this command:
     python triain_main.py -m=<model name> -v=<data path for video> -vm=<model path for video> -a=<data path for audio> -am=<model path for audio> #Need to change
   ```
   ```EVALUATION
-    python eval_main.py -m=<model name> -v=<data path for video> -vm=<model path for video> -a=<data path for audio> -am=<model path for audio> #Need to change
+    python eval_main.py -en=<whether ensemble> -m=<model name> -v=<data path for video> -vm=<model path for video> -a=<data path for audio> -am=<model path for audio> #Need to change
   ```
 
 ## Result
