@@ -19,7 +19,6 @@ torch==1.8.0
 torchvision==0.9.0  
 matplotlib==3.3.4  
 tqdm==4.61.2  
-sklearn  
 scikit-learn  
 pandas  
 ```console
