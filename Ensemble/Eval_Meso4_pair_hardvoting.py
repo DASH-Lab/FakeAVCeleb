@@ -10,11 +10,11 @@ from torch.utils.data import Dataset
 import torchvision.transforms as transforms
 import torchvision.datasets as datasets
 from Common_Function_ import *
-import torch.multiprocessing
 from models.MesoNet4_forEnsemble import Meso4 as MesoNet
 import sklearn.metrics as metrics
 import copy
 import matplotlib.pyplot as plt
+import torch.multiprocessing
 torch.multiprocessing.set_sharing_strategy('file_system')
 GPU = '1,2'
 os.environ["CUDA_VISIBLE_DEVICES"] = GPU

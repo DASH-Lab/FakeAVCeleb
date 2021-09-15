@@ -10,7 +10,6 @@ from utils.EarlyStopping import EarlyStopping
 from utils.Common_Function import *
 from models.MesoNet import MesoInception4
 
-
 def TrainMesoInceptionNet(args):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     LIST_SELECT = ('VIDEO' if os.path.exists(args.path_video) else '',
@@ -92,7 +91,6 @@ def TrainMesoInceptionNet(args):
         best_valid_loss = float('inf')
         print("training...")
         for epoch in range(EPOCHS):
-
             start_time = time.monotonic()
 
             train_loss, train_acc_1, train_acc_5 = train(model, train_iterator, optimizer, criterion, scaler, device)

@@ -153,12 +153,6 @@ for i, data in enumerate(test_iterator):
         in_1 = data[0].to(device)
         target = data[1].cpu().detach().numpy() ; targets.append(target)
         in_2 = data[2].to(device)
-        # _y_pred = ecls(in_1, in_2).cpu().detach()
-        # int_pred_encode = label_encoder.fit_transform(_y_pred.detach().cpu())
-        # int_pred_encode = int_pred_encode.reshape(len(int_pred_encode), 1)
-        # onehot_pred_encode = enc.fit_transform(int_pred_encode)
-        # _y_pred = torch.tensor(onehot_pred_encode)
-        # print(_y_pred)
         """spectograms(video) and frames are must be matched. So, the number 2 is only True label."""
         #y_true
         y_pred_1 = models[0](in_1)
