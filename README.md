@@ -46,7 +46,7 @@ pip install -r requirements.txt
 ### - Full Usages
 
 ```console
-  -m                   model name = [MESO4, MESOINCEPTION4, XCEPTION, EADPOSE, EXPLOTING, CAPSULE]
+  -m                   model name = [MESO4, MESOINCEPTION4, XCEPTION]
   -v                   path of video data
   -vm                  path of video model (For evluation)
   -a                   path of audio data
@@ -75,19 +75,22 @@ To train and evaluate the model(s) in the paper, run this command:
     ```SOELY EVALUATION (Audio and Video, _respectively_.)
     python eval_main.py -en=False -m=<model name> -v=<data path for video> -vm=<model path for video> -a=<data path for audio> -am=<model path for audio>
     ```
-   Also, After train the model, you can evaluate the result of Ensemble Prediction.
+   Also, After train the model, you can evaluate the result of _Ensemble Prediction_.
     ```ENSEMBLE EVALUATION (Video and Audio _together_.)
     python eval_main.py -en=True -m=<model name> -v=<data path for video> -vm=<model path for video> -a=<data path for audio> -am=<model path for audio>
     ```
   
 - **2. Multimodal**
-- #### For using **Headpose, Exploting, and Capsule-Forensics**, please cite and download for running codes.
-_Headpose_ :https://bitbucket.org/ericyang3721/headpose_forensic/src/master/
-_Exploting_ :https://github.com/FalkoMatern/Exploiting-Visual-Artifacts #
-_Capsule-Forensics_ :https://github.com/nii-yamagishilab/Capsule-Forensics
+- For using _Headpose, Exploting, and Capsule-Forensics_, please cite and download for running codes.
+_Headpose_ :https://bitbucket.org/ericyang3721/headpose_forensic/src/master/  
+_Exploting_ :https://github.com/FalkoMatern/Exploiting-Visual-Artifacts  
+_Capsule-Forensics_ :https://github.com/nii-yamagishilab/Capsule-Forensics  
+
+- Except above, run this command.
   ```TRAIN
     python triain_main.py -m=<model name> -v=<data path for video> -vm=<model path for video> -a=<data path for audio> -am=<model path for audio> #Need to change
   ```
+   After train the model, you can evaluate the result.
   ```EVALUATION
     python eval_main.py -en=<whether ensemble> -m=<model name> -v=<data path for video> -vm=<model path for video> -a=<data path for audio> -am=<model path for audio> #Need to change
   ```
@@ -133,7 +136,9 @@ If you have any questions, please contact us at hasam.khalid/shahroz/kimminha@g.
 ###### [8] Liming Jiang, Ren Li, Wayne Wu, Chen Qian, and Chen Change Loy. Deeperforensics-1.0: A large-scale dataset for real-world face forgery detection. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pages 2889–2898, 2020.
 ###### [9] Brian Dolhansky, Joanna Bitton, Ben Pflaum, Jikuo Lu, Russ Howes, Menglin Wang, and Cristian Canton Ferrer. The deepfake detection challenge dataset. arXiv preprint arXiv:2006.07397, 2020.
 ###### [10] Patrick Kwon, Jaeseong You, Gyuhyeon Nam, Sungwoo Park, and Gyeongsu Chae. Kodf: A large-scale korean deepfake detection dataset. arXiv preprint arXiv:2103.10094, 2021.
-
+###### [11] Huy H Nguyen, Junichi Yamagishi, and Isao Echizen. Use of a capsule network to detect fake images and videos. arXiv preprint arXiv:1910.12467, 2019.
+###### [12] Xin Yang, Yuezun Li, and Siwei Lyu. Exposing deep fakes using inconsistent head poses. In ICASSP 2019-2019 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), pages 8261–8265. IEEE, 2019.
+###### [13] Matern, Falko and Riess, Christian and Stamminger, Marc. Exploiting visual artifacts to expose deepfakes and face manipulations. In 2019 IEEE Winter Applications of Computer Vision Workshops (WACVW), 2019.
 ## License
 The data can be released under the [FakeAVCeleb Request Forms](https://docs.google.com/forms/u/1/d/e/1FAIpQLSfPDd3oV0auqmmWEgCSaTEQ6CGpFeB-ozQJ35x-B_0Xjd93bw/viewform), and the code is released under the MIT license.
 
