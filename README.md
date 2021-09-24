@@ -81,7 +81,7 @@ To train and evaluate the model(s) in the paper, run this command:
     ```
   
 - **2. Multimodal**
-- For using _Headpose, Exploting, and Capsule-Forensics_, please cite and download for running codes.
+- For using _Headpose, Exploting, and Capsule-Forensics_, please cite and download for running codes.  
 _Headpose_ :https://bitbucket.org/ericyang3721/headpose_forensic/src/master/  
 _Exploting_ :https://github.com/FalkoMatern/Exploiting-Visual-Artifacts  
 _Capsule-Forensics_ :https://github.com/nii-yamagishilab/Capsule-Forensics  
