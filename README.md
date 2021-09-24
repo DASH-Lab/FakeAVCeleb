@@ -64,7 +64,7 @@ pip install -r requirements.txt
 
 ####
 - **Note that** it must be required to write the **model name** and **either video informs**(_data path, model path_) **or audio informs**(_data path, model path_)
-- More, **the model name should be picked one of thes**e : [MESO4, MESOINCEPTION4, XCEPTION, EADPOSE, EXPLOTING, CAPSULE]
+- More, **the model name should be picked one of thes**e : [MESO4, MESOINCEPTION4, XCEPTION]
 ### - Benchmark
 To train and evaluate the model(s) in the paper, run this command:
 - **1. Unimodal**
@@ -81,6 +81,10 @@ To train and evaluate the model(s) in the paper, run this command:
     ```
   
 - **2. Multimodal**
+- #### For using **Headpose, Exploting, and Capsule-Forensics**, please cite and download for running codes.
+_Headpose_ :https://bitbucket.org/ericyang3721/headpose_forensic/src/master/
+_Exploting_ :https://github.com/FalkoMatern/Exploiting-Visual-Artifacts #
+_Capsule-Forensics_ :https://github.com/nii-yamagishilab/Capsule-Forensics
   ```TRAIN
     python triain_main.py -m=<model name> -v=<data path for video> -vm=<model path for video> -a=<data path for audio> -am=<model path for audio> #Need to change
   ```
