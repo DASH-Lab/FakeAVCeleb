@@ -6,8 +6,8 @@
 **FakeAVCeleb** is a novel Audio-Video Multimodal Deepfake Detection dataset (**FakeAVCeleb**), which contains not only deepfake videos but also respective synthesized cloned audios. 
 
 
-## Access
-If you would like to download the FakeAVCeleb dataset, please fill out the [google request form](https://docs.google.com/forms/u/1/d/e/1FAIpQLSfPDd3oV0auqmmWEgCSaTEQ6CGpFeB-ozQJ35x-B_0Xjd93bw/viewform) and, once accepted, we will send you the link to our download script.sh
+## Access (Request form)
+If you would like to download the FakeAVCeleb dataset, please fill out the [**Google request form**](https://docs.google.com/forms/u/1/d/e/1FAIpQLSfPDd3oV0auqmmWEgCSaTEQ6CGpFeB-ozQJ35x-B_0Xjd93bw/viewform) and, once accepted, we will send you the link to our download script.sh
 
 Once, you obtain the download link, please see the [download section](dataset/README.md) in our [Dataset site](https://~~~~~~~~~~~~~~~~~). You can also find details about our FakeAVCeleb dataset.
 
@@ -118,8 +118,14 @@ _Capsule-Forensics_ :https://github.com/nii-yamagishilab/Capsule-Forensics
 ## Citation
 If you use the FakeAVCeleb data or code please cite:
 ```
-TBD
-
+@misc{khalid2021fakeavceleb,
+      title={FakeAVCeleb: A Novel Audio-Video Multimodal Deepfake Dataset}, 
+      author={Hasam Khalid and Shahroz Tariq and Simon S. Woo},
+      year={2021},
+      eprint={2108.05080},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
 ```
  
 ## Contect
