@@ -27,17 +27,17 @@ pip install -r requirements.txt
 ## Deepfake Dataset for Quantitative Comparison
 - ### Quantitative comparison of FakeAVCeleb to existing publicly available **Deepfake dataset**.
 
-| Dataset | Real Videos | Fake Videos | Total Videos | Rights Cleared | Agreeing subjects | Total subjects | Methods | Real Audio | Deepfake Audio |
+| Dataset | Real Videos | Fake Videos | Total Videos | Rights Cleared | Agreeing subjects | Total subjects | Methods | Real Audio | Deepfake Audio | Fine-grained Labeling
 |------------------|-------------------------------------------------------------|---------------------|---------------------|-----|-----|------|---|-----|-----|
-| UADFV            | 49                                                          | 49                  | 98                  | No  | 0   | 49   | 1 | No  | No  |
-| DeepfakeTIMIT    | 640                                                         | 320                 | 960                 | No  | 0   | 32   | 2 | No  | Yes |
-| FF++             | 1000                                                        | 4,000               | 5,000               | No  | 0   | N/A  | 4 | No  | No  |
-| Celeb-DF         | 590                                                         | 5,639               | 6,229               | No  | 0   | 59   | 1 | No  | No  |
-| Google DFD       | 0                                                           | 3,000               | 3,000               | Yes | 28  | 28   | 5 | No  | No  |
-| DeeperForensics  | 50,000                                                      | 10,000              | 60,000              | No  | 100 | 100  | 1 | No  | No  |
-| DFDC             | 23,654                                                      | 104,500             | 128,154             | Yes | 960 | 960  | 8 | Yes | Yes |
-| KoDF             | 62,166                                                      | 175,776             | 237,942             | Yes | 403 | 403  | 6 | No  | Yes |
-| **FakeAVCeleb**      | 490 | 25,000 | 25,500 | Yes | 0 | 600 | 5 | Yes | Yes |
+| UADFV            | 49                                                          | 49                  | 98                  | No  | 0   | 49   | 1 | No  | No  | No  |
+| DeepfakeTIMIT    | 640                                                         | 320                 | 960                 | No  | 0   | 32   | 2 | No  | Yes | No  |
+| FF++             | 1000                                                        | 4,000               | 5,000               | No  | 0   | N/A  | 4 | No  | No  | No  |
+| Celeb-DF         | 590                                                         | 5,639               | 6,229               | No  | 0   | 59   | 1 | No  | No  | No  |
+| Google DFD       | 0                                                           | 3,000               | 3,000               | Yes | 28  | 28   | 5 | No  | No  | No  |
+| DeeperForensics  | 50,000                                                      | 10,000              | 60,000              | Yes  | 100 | 100  | 1 | No  | No  | No  |
+| DFDC             | 23,654                                                      | 104,500             | 128,154             | Yes | 960 | 960  | 8 | Yes | Yes | No  |
+| KoDF             | 62,166                                                      | 175,776             | 237,942             | Yes | 403 | 403  | 6 | Yes  | No | No  |
+| **FakeAVCeleb**      | 500 | 19,000 | 20,000 | No | 0 | 500 | 5 | Yes | Yes | Yes  |
 
 
 
