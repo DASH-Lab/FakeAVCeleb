@@ -27,7 +27,7 @@ pip install -r requirements.txt
 ## Deepfake Dataset for Quantitative Comparison
 - ### Quantitative comparison of FakeAVCeleb to existing publicly available **Deepfake dataset**.
 
-| Dataset | Real Videos | Fake Videos | Total Videos | Rights Cleared | Agreeing subjects | Total subjects | Methods | Real Audio | Deepfake Audio | Fine-grained Labeling
+| Dataset | Real Videos | Fake Videos | Total Videos | Rights Cleared | Agreeing subjects | Total subjects | Methods | Real Audio | Deepfake Audio | Fine-grained Labeling |
 |------------------|-------------------------------------------------------------|---------------------|---------------------|-----|-----|------|---|-----|-----|
 | UADFV            | 49                                                          | 49                  | 98                  | No  | 0   | 49   | 1 | No  | No  | No  |
 | DeepfakeTIMIT    | 640                                                         | 320                 | 960                 | No  | 0   | 32   | 2 | No  | Yes | No  |
