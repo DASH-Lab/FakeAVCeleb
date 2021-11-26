@@ -85,14 +85,7 @@ _Headpose_ :https://bitbucket.org/ericyang3721/headpose_forensic/src/master/
 _Exploting_ :https://github.com/FalkoMatern/Exploiting-Visual-Artifacts  
 _Capsule-Forensics_ :https://github.com/nii-yamagishilab/Capsule-Forensics  
 
-- Except above, run this command.
-  ```TRAIN
-    python triain_main.py -m=<model name> -v=<data path for video> -vm=<model path for video> -a=<data path for audio> -am=<model path for audio> #Need to change
-  ```
-   After train the model, you can evaluate the result.
-  ```EVALUATION
-    python eval_main.py -en=<whether ensemble> -m=<model name> -v=<data path for video> -vm=<model path for video> -a=<data path for audio> -am=<model path for audio> #Need to change
-  ```
+
 
 ## Result
 - **Frame-level AUC scores (%)** of various methods on compared datasets.
