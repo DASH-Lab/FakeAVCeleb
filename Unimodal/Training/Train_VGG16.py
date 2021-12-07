@@ -1,3 +1,4 @@
+
 import torch.nn as nn
 import torch.optim as optim
 import torch.utils.data as data
@@ -8,15 +9,15 @@ import time
 from torch.cuda.amp import GradScaler
 from utils.EarlyStopping import EarlyStopping
 from utils.Common_Function import *
-from models import xception_origin
+import torchvision.models as models
 
 
-def TrainXception(args):
+def TrainVGG16(args):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     LIST_SELECT = ('VIDEO' if os.path.exists(args.path_video) else '',
                    'AUDIO' if os.path.exists(args.path_audio) else '')
     assert (LIST_SELECT[0]!='' and LIST_SELECT[1]!='', 'At least one path must be typed')
-
+    print(LIST_SELECT)
     tu_video, tu_audio = None, None
     if args.path_video:
         tu_video = (args.path_video)
@@ -39,6 +40,7 @@ def TrainXception(args):
         START_LR = args.lr
         PATIENCE_EARLYSTOP = args.n_early
         SAVE_PATH = args.path_save
+
         pretrained_size = 224
         pretrained_means = [0.4489, 0.3352, 0.3106]  # [0.485, 0.456, 0.406]
         pretrained_stds = [0.2380, 0.1965, 0.1962]  # [0.229, 0.224, 0.225]
@@ -69,7 +71,6 @@ def TrainXception(args):
 
         print(f'Number of training examples: {len(train_data)}')
         print(f'Number of validation examples: {len(valid_data)}')
-
         train_iterator = data.DataLoader(train_data,
                                          shuffle=True,
                                          batch_size=BATCH_SIZE)
@@ -79,10 +80,11 @@ def TrainXception(args):
                                          batch_size=BATCH_SIZE)
 
         print(f'number of train/val/test loader : {len(train_iterator), len(valid_iterator)}')
-        model = xception_origin.xception(num_classes=2, pretrained='')
+
+        model = models.vgg16(num_classes=2)
         if len(args.num_gpu) > 1:
             model = nn.DataParallel(model)
-        model.to(device)
+        model = model.to(device)
         criterion = nn.CrossEntropyLoss().to(device)
         scaler = GradScaler()
         early_stopping = EarlyStopping(patience=PATIENCE_EARLYSTOP, verbose=True)
@@ -121,3 +123,4 @@ def TrainXception(args):
             if early_stopping.early_stop:
                 print("Early stopping")
                 break
+

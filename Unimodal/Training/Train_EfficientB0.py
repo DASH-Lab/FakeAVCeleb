@@ -8,10 +8,10 @@ import time
 from torch.cuda.amp import GradScaler
 from utils.EarlyStopping import EarlyStopping
 from utils.Common_Function import *
-from models import xception_origin
+from models.EfficientNet.EfficientNet import EfficientNet
 
 
-def TrainXception(args):
+def TrainEfficientB0(args):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     LIST_SELECT = ('VIDEO' if os.path.exists(args.path_video) else '',
                    'AUDIO' if os.path.exists(args.path_audio) else '')
@@ -79,7 +79,9 @@ def TrainXception(args):
                                          batch_size=BATCH_SIZE)
 
         print(f'number of train/val/test loader : {len(train_iterator), len(valid_iterator)}')
-        model = xception_origin.xception(num_classes=2, pretrained='')
+        model = EfficientNet.from_pretrained('efficientnet-b0', in_channels=3,num_classes=2)
+
+
         if len(args.num_gpu) > 1:
             model = nn.DataParallel(model)
         model.to(device)
@@ -121,3 +123,18 @@ def TrainXception(args):
             if early_stopping.early_stop:
                 print("Early stopping")
                 break
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

@@ -4,7 +4,7 @@ import torchvision.datasets as datasets
 import copy
 import time
 from utils.Common_Function import *
-from models.MesoNet import Meso4
+from models.EfficientNet.EfficientNet import EfficientNet
 import sklearn.metrics as metrics
 import matplotlib.pyplot as plt
 #############################EVAL##############################
@@ -45,7 +45,7 @@ def Eval(args):
         test_iterator = data.DataLoader(test_data,
                                         shuffle = True,
                                         batch_size = BATCH_SIZE)
-        model = Meso4()
+        model = EfficientNet.from_pretrained('efficientnet-b0', in_channels=3,num_classes=2)
         model.load_state_dict(torch.load(load_dir)['state_dict'])
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         if len(args.num_gpu) > 1:

@@ -6,6 +6,8 @@ import copy
 import time
 from utils.Common_Function import *
 from models.MesoNet import  MesoInception4
+import sklearn.metrics as metrics
+import matplotlib.pyplot as plt
 #############################EVAL##############################
 from sklearn.metrics import classification_report
 from sklearn.preprocessing import OneHotEncoder
@@ -17,7 +19,11 @@ import torch.nn as nn
 def Eval(args):
     LIST_SELECT = ('VIDEO' if os.path.exists(args.path_video) else '', 'AUDIO' if os.path.exists(args.path_audio) else '')
     assert (LIST_SELECT[0]!='' and LIST_SELECT[1]!='', 'At least one path must be typed')
+    print(LIST_SELECT)
     BATCH_SIZE = args.batch_size
+    pretrained_size = 224
+    pretrained_means = [0.4489, 0.3352, 0.3106]#[0.485, 0.456, 0.406]
+    pretrained_stds= [0.2380, 0.1965, 0.1962]#[0.229, 0.224, 0.225]
 
     for MODE in LIST_SELECT:
         test_dir, load_dir = '', ''
@@ -27,9 +33,7 @@ def Eval(args):
             test_dir, load_dir = args.path_audio, args.path_audio_model
         assert(os.path.exists(test_dir) and os.path.exists(load_dir) ,'wrong path param !!!')
 
-        pretrained_size = 224
-        pretrained_means = [0.4489, 0.3352, 0.3106]#[0.485, 0.456, 0.406]
-        pretrained_stds= [0.2380, 0.1965, 0.1962]#[0.229, 0.224, 0.225]
+
 
         test_transforms = transforms.Compose([
                                    transforms.Resize((pretrained_size,pretrained_size)),
@@ -89,12 +93,6 @@ def Eval(args):
                     a = _y_pred.argmax(1)
                     _y_pred = np.array(torch.zeros(_y_pred.shape).scatter(1, a.unsqueeze(1), 1),dtype=np.int8)
                     y_pred = np.concatenate((y_pred,_y_pred))
-
-            result = classification_report(y_true, y_pred, labels=None, target_names=None, sample_weight=None, digits=4, output_dict=False, zero_division='warn')
-            print(result)
-            print(f'ACC is {accuracy_score(y_true, y_pred)}')
-            import sklearn.metrics as metrics
-            import matplotlib.pyplot as plt
 
             result = classification_report(y_true, y_pred, labels=None, target_names=None, sample_weight=None, digits=4, output_dict=False, zero_division='warn')
             print(result)

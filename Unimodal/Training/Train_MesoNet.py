@@ -16,7 +16,7 @@ def TrainMesoNet(args):
     LIST_SELECT = ('VIDEO' if os.path.exists(args.path_video) else '',
                    'AUDIO' if os.path.exists(args.path_audio) else '')
     assert (LIST_SELECT[0]!='' and LIST_SELECT[1]!='', 'At least one path must be typed')
-
+    print(LIST_SELECT)
     tu_video, tu_audio = None, None
     if args.path_video:
         tu_video = (args.path_video)
@@ -24,13 +24,14 @@ def TrainMesoNet(args):
         tu_audio = (args.path_audio)
 
     for MODE in LIST_SELECT:
-        train_dir = ''
+        train_dir = None
         if MODE == 'VIDEO':
             train_dir = tu_video
         elif MODE == 'AUDIO':
             train_dir = tu_audio
-        print(train_dir)
-        assert(os.path.exists(train_dir),'wrong path param !!!')
+        
+        if train_dir is None:
+            continue
 
         EPOCHS = args.epochs
         BATCH_SIZE = args.batch_size
@@ -105,7 +106,7 @@ def TrainMesoNet(args):
                             'epoch': epoch,
                             'lr': START_LR,
                             'best_acc': valid_acc_1,
-                            }, f'{SAVE_PATH}/best_{args.model}.pt')
+                            }, f'{SAVE_PATH}/best_{args.model}_{MODE}.pt')
 
             end_time = time.monotonic()
             epoch_mins, epoch_secs = epoch_time(start_time, end_time)

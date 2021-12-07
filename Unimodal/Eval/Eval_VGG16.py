@@ -4,7 +4,7 @@ import torchvision.datasets as datasets
 import copy
 import time
 from utils.Common_Function import *
-from models.MesoNet import Meso4
+import torchvision.models as models
 import sklearn.metrics as metrics
 import matplotlib.pyplot as plt
 #############################EVAL##############################
@@ -45,7 +45,7 @@ def Eval(args):
         test_iterator = data.DataLoader(test_data,
                                         shuffle = True,
                                         batch_size = BATCH_SIZE)
-        model = Meso4()
+        model = models.vgg16(num_classes=2)
         model.load_state_dict(torch.load(load_dir)['state_dict'])
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         if len(args.num_gpu) > 1:
@@ -88,6 +88,8 @@ def Eval(args):
                     a = _y_pred.argmax(1)
                     _y_pred = np.array(torch.zeros(_y_pred.shape).scatter(1, a.unsqueeze(1), 1),dtype=np.int8)
                     y_pred = np.concatenate((y_pred,_y_pred))
+
+
 
             result = classification_report(y_true, y_pred, labels=None, target_names=None, sample_weight=None, digits=4, output_dict=False, zero_division='warn')
             print(result)
