@@ -9,7 +9,7 @@
 ## Access (Request form)
 If you would like to download the FakeAVCeleb dataset, please fill out the [**Google request form**](https://docs.google.com/forms/u/1/d/e/1FAIpQLSfPDd3oV0auqmmWEgCSaTEQ6CGpFeB-ozQJ35x-B_0Xjd93bw/viewform) and, once accepted, we will send you the link to our download script.sh
 
-Once, you obtain the download link, please see the [download section](dataset/README.md) in our [Dataset site](https://~~~~~~~~~~~~~~~~~). You can also find details about our FakeAVCeleb dataset.
+Once, you obtain the download link, please see the [download section](dataset/README.md) in our [Dataset site](https://sites.google.com/view/fakeavcelebdash-lab/). You can also find details about our FakeAVCeleb dataset.
 
 ## Requirements and Installation
 We recommend the installation using the _requilrements.txt_ contained in this Github.  
