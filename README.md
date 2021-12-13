@@ -37,7 +37,7 @@ pip install -r requirements.txt
 | DeeperForensics  | 50,000                                                      | 10,000              | 60,000              | Yes | 100 | 100  | 1 | No  | No  | No  |
 | DFDC             | 23,654                                                      | 104,500             | 128,154             | Yes | 960 | 960  | 8 | Yes | Yes | No  |
 | KoDF             | 62,166                                                      | 175,776             | 237,942             | Yes | 403 | 403  | 6 | Yes  | No | No  |
-| **FakeAVCeleb**      | 500 | 19,000 | 20,000 | No | 0 | 500 | 5 | Yes | Yes | Yes  |
+| **FakeAVCeleb**      | 500 | 19,500 | 20,000 | No | 0 | 500 | 4 | Yes | Yes | Yes  |
 
 
 
