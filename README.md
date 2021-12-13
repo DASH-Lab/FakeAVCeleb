@@ -104,7 +104,7 @@ _Capsule-Forensics_ :https://github.com/nii-yamagishilab/Capsule-Forensics
 - **Spectrogram** of Real audio and Fake audio from left to right.
 
 <div style="text-align:center">
-<img src="./images/Spectrogram_a1.png" width="400" height="280"/> <img src="./images/Spectrogram_a1.png" width="400" height="280"/>
+<img src="./images/Spectrogram_a1.png" width="400" height="280"/> <img src="./images/Spectrogram_a1fake.png" width="400" height="280"/>
 </div>
 
 ## Citation
