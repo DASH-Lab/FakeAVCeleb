@@ -45,12 +45,11 @@ pip install -r requirements.txt
 ### - Full Usages
 
 ```console
-  -m                   model name = [MESO4, MESOINCEPTION4, XCEPTION]
+  -m                   model name = [MESO4, MESOINCEPTION4, XCEPTION, EFFICIENTB0, F3NET, LIPS, XRAY, HEADPOSE, EXPLOTING, CAPSULE]
   -v                   path of video data
-  -vm                  path of video model (For evluation)
   -a                   path of audio data
+  -vm                  path of video model (For evluation)
   -am                  path of audio model (For evluation)
-  -en                  True or False, It would be decided whether ensemble
   -sm                  path to save best-model while training
   -l                   learning late (For training)
   -me                  number of epoch (For training)
@@ -58,6 +57,7 @@ pip install -r requirements.txt
   -ng                  gpu device to use (default=0) can be 0,1,2 for multi-gpu
   -vr                  validation ratio on trainset
   -ne                  patient number of early stopping
+  -en                  True or False, It would be decided whether ensemble (Only for evaluation)
 ```
 
 
@@ -70,11 +70,11 @@ To train and evaluate the model(s) in the paper, run this command:
     ```TRAIN
    python triain_main.py -m=<model name> -v=<data path for video> -a=<data path for audio> 
     ```
-   After train the model, you can evaluate the result.
+   After train the model, you can **_soely evaluate_** the result.
     ```SOELY EVALUATION (Audio and Video, _respectively_.)
-    python eval_main.py -en=False -m=<model name> -v=<data path for video> -vm=<model path for video> -a=<data path for audio> -am=<model path for audio>
+    python eval_main.py -m=<model name> -v=<data path for video> -vm=<model path for video> -a=<data path for audio> -am=<model path for audio>
     ```
-   Also, After train the model, you can evaluate the result of _Ensemble Prediction_.
+   you can evaluate the result of **_Ensemble Prediction_**.
     ```ENSEMBLE EVALUATION (Video and Audio _together_.)
     python eval_main.py -en=True -m=<model name> -v=<data path for video> -vm=<model path for video> -a=<data path for audio> -am=<model path for audio>
     ```
